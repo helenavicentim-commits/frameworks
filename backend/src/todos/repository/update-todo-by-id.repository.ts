@@ -4,11 +4,10 @@ import { UpdateTodoDto } from "../dto/update-todo.dto";
 
 @Injectable()
 export class UpdateTodoRepository {
-    update(data: UpdateTodoDto) {
-        throw new Error("Method not implemented.");
-    }
+
     constructor(private readonly prisma: PrismaService){}
 
+    // dois parametros data e id
     async execute (id:string, data: UpdateTodoDto){
         return await this.prisma.todo.update({
             where:{id},

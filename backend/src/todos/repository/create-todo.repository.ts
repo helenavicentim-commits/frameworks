@@ -9,7 +9,8 @@ export class CreateTodoRepository {
         throw new Error("Method not implemented.");
     }
     constructor(private readonly prisma: PrismaService){}
+    // os dados estão todos no Dto
     async execute (data: CreateTodoDto){
-        return await this.prisma.todo.create({data})
+        return await this.prisma.todo.create({data}) // pequena função pronta que já é do própio prisma
     }
 }

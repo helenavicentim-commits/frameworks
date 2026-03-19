@@ -22,3 +22,4 @@ export class FindAllTodoUseCase {
     }
 }
 
+//mostra todos os produtos (dados) que ficam no banco de dados

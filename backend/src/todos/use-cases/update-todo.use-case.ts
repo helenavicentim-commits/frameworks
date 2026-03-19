@@ -10,10 +10,10 @@ export class UpdateTodoUseCase {
         private readonly loggers: Logger,
     ){}
 
-    async execute (data: UpdateTodoDto) {
+    async execute (id: string, data: UpdateTodoDto) {
         try{
             this.loggers.log('creting toDo...')
-            const todo = await this.updateTodoRepository.update(data);
+            const todo = await this.updateTodoRepository.execute(id, data);
             this.loggers.log('toDo update sucesfully');
             return todo;
         }catch(error){

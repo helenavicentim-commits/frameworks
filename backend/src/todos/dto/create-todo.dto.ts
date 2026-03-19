@@ -6,6 +6,7 @@ enum TodoPriority{
     HIGH = 'HIGH',
 }
 
+//tratamento de exceção
 export class CreateTodoDto{
 @IsString()
 title: string;
