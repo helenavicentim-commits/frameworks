@@ -13,11 +13,11 @@ export class FindTodoUseCase {
         try{
             this.loggers.log('creting toDo...')
             const todo = await this.findTodoRepository.execute(id); // chamando o arquivo e função que está no arquivo
-            this.loggers.log('toDo created sucesfully');
+            this.loggers.log('toDo found sucesfully');
             return todo;
         }catch(error){
             this.loggers.error(error);
-            throw new Error ('falied to create toDo')
+            throw new Error ('falied to find toDo')
         }
     }
 }
