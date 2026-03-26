@@ -2,7 +2,7 @@ import { Injectable, Logger } from "@nestjs/common";
 import { DeleteTodoRepository } from "../repository";
 
 @Injectable()
-export default class DeleteTodoUseCase {
+export  class DeleteTodoUseCase {
     constructor(
         private readonly deleteTodoRepository: DeleteTodoRepository,
         //importando o arquivo do repositório

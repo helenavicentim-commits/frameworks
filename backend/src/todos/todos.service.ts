@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
-import { CreateTodoUseCase, FindAllTodoUseCase, FindTodoUseCase, UpdateTodoUseCase } from './use-cases';
-import DeleteTodoUseCase from './use-cases/delete-todo.use-case';
+import { CreateTodoUseCase, DeleteTodoUseCase, FindAllTodoUseCase, FindTodoUseCase, UpdateTodoUseCase} from './use-cases';
+
+
+
 
 @Injectable()
 export class TodosService {
@@ -21,7 +23,7 @@ export class TodosService {
   async delete(id: string){
     return await this.deleteTodoUseCase.execute(id)
   }
-  async findAll(data: FindAllTodoUseCase){
+  async findAll(){
     return await this.findAllTodoUseCase.execute()
   }
   async find (id:string ){
