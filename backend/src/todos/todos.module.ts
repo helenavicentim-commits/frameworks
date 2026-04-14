@@ -4,7 +4,7 @@ import { TodosController } from './todos.controller';
 import * as UseCases from './use-cases';
 import * as Repositories from './repository';
 import { Prisma } from '@prisma/client/extension';
-import { PrismaService } from 'src/shared/database/prisma.datebase';
+import { PrismaService } from 'src/shared/database/prisma.database';
 
 const useCases =   Object.values(UseCases);
 const repositories = Object.values(Repositories);
