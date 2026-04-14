@@ -3,7 +3,7 @@ import { UpdateTodoRepository } from "../repository";
 import { UpdateTodoDto } from "../dto/update-todo.dto";
 
 
-Injectable()
+@Injectable()
 export class UpdateTodoUseCase {
     constructor(
         private readonly updateTodoRepository: UpdateTodoRepository,

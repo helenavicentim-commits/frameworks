@@ -1,0 +1,21 @@
+info:
+  name: update
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{url}}/todos/0f017d0f-1de5-4e81-9e94-af3a20f4cbdf"
+  body:
+    type: json
+    data: |-
+      {
+        "description": "Helena dá muitooooooooooo trabalho"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

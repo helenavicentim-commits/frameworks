@@ -18,5 +18,5 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", "src/generated"]
+  "include": ["src", "src/generated", "prisma.config.ts"]
 }

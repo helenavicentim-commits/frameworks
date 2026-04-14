@@ -1,51 +1,50 @@
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
 }
+
 enum TodoPriority {
 LOW
 MEDIUM
 HIGH
 }
 
-//todos os tipos de dados que queremos cadastrar na tabela
-model user {
-  id  String @id @default(uuid())
-  name String?
-  email String @unique
-  passwordHash  String @map("password_hash")
-  isActive Boolean @default(true) @map("is_active")
+model User {
+id           String   @id @default(uuid())
+name         String?
+email        String   @unique
+passwordHash String   @map("password_hash")
+isActive     Boolean  @default(true) @map("is_active")
 
-  todos Todo[]
+todos        Todo[]
 
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+createdAt    DateTime @default(now()) @map("created_at")
+updatedAt    DateTime @updatedAt @map("updated_at")
 
-  @@map("users")
+@@map("users")
 }
 
-//? é opicional
-//! é obrigatório
 model Todo {
-  id String @id @default(uuid())
-  title String
-  descriptionn String?
-  completed Boolean @default(false)
-  priority TodoPriority @default(MEDIUM)
-  dueAt DateTime? @map("due_at")
-  completedAt DateTime?  @map("completed_at")
+id          String        @id @default(uuid())
+title       String
+description String?
+completed   Boolean       @default(false)
+priority    TodoPriority  @default(MEDIUM)
+dueAt       DateTime?     @map("due_at")
+completedAt DateTime?     @map("completed_at")
 
-  userId String @map("user_id")
-  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+userId      String        @map("user_id")
+user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  createAt DateTime  @default(now()) @map("created_at") 
-  updateAt DateTime @updatedAt @map("updated_at")
+createdAt   DateTime      @default(now()) @map("created_at")
+updatedAt   DateTime      @updatedAt @map("updated_at")
 
-  @@index([userId])
-  @@index([completed])
-  @@map("todos")
+@@index([userId])
+@@index([completed])
+@@map("todos")
 }
+

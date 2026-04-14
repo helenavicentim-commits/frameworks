@@ -1,42 +1,39 @@
-import { IsBoolean, IsDateString, IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsDateString, IsEnum, IsNotEmpty, IsOptional, IsString, IsUUID } from "class-validator";
 
-enum TodoPriority{           
-    LOW = 'LOW',
-    MEDIUM = 'MEDIUM',
-    HIGH = 'HIGH',
+// É boa prática exportar o enum para que ele possa ser usado em outros lugares
+export enum TodoPriority {
+  LOW = 'LOW',
+  MEDIUM = 'MEDIUM',
+  HIGH = 'HIGH',
 }
 
-//tratamento de exceção
-export class CreateTodoDto{
-@IsString()
-title: string;
+export class CreateTodoDto {
+  @IsString()
+  @IsNotEmpty()
+  title: string;
 
-@IsString()
-@IsOptional()
-description?: string;
+  @IsString()
+  @IsOptional()
+  description?: string; 
+  @IsBoolean()
+  @IsOptional()
+  completed?: boolean;
 
-@IsBoolean()
-@IsNotEmpty()
-completed: boolean;
+  @IsEnum(TodoPriority)
+  @IsOptional() 
+  priority?: TodoPriority;
 
-@IsEnum(TodoPriority)
-@IsNotEmpty()
-priority: TodoPriority;
+  @IsDateString()
+  @IsOptional()
+  dueAt?: Date;
 
-@IsDateString()
-@IsOptional()
-dueAt?: Date;
+  @IsDateString()
+  @IsOptional()
+  completedAt?: Date; 
 
-@IsDateString()
-completedAt: Date;
+  @IsString()
+  @IsUUID() 
+  @IsNotEmpty()
+  userId: string;
 
-@IsString()
-userId: string;
-
-@IsDateString()
-createdAt: Date;
-
-@IsDateString()
-@IsOptional()
-updatedAt?: Date;
 }

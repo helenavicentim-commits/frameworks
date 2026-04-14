@@ -18,7 +18,7 @@ CREATE TABLE "users" (
 CREATE TABLE "todos" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "descriptionn" TEXT,
+    "description" TEXT,
     "completed" BOOLEAN NOT NULL DEFAULT false,
     "priority" "TodoPriority" NOT NULL DEFAULT 'MEDIUM',
     "due_at" TIMESTAMP(3),
