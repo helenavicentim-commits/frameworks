@@ -5,7 +5,7 @@ import { PrismaService } from "../../prisma.database";
 export class FindUserByEmailRepository{
     constructor(private readonly prisma: PrismaService) {}
 
-    async fundByEmail (email: string){
+    async findByEmail (email: string){
         return await this.prisma.user.findUnique({
             where:{
                 email,
