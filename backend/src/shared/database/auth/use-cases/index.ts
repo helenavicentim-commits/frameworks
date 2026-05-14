@@ -1,2 +1,2 @@
-export * from './loguin.use-case';
+export * from './login.use-case';
 export * from './register.use-case'
