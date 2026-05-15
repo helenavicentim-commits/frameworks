@@ -6,6 +6,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 import { PrismaService } from '../prisma.database';
+import "dotenv/config";
 
 const useCases = Object.values(UseCases);
 const repositories = Object.values(Repositories);
@@ -13,7 +14,7 @@ const repositories = Object.values(Repositories);
 @Module({
     imports:[
         JwtModule.register({
-            secret :process.env.jWT_SECRET,
+            secret :process.env.JWT_SECRET,
             signOptions: { expiresIn: '1d'},
         }),
     ],

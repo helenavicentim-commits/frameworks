@@ -12,7 +12,7 @@ export class FindTodoUseCase {
     async execute (id:string) { // como no reporitório pasamos id temos que passar aqui também e no create passa data 
         try{
             this.loggers.log('creting toDo...')
-            const todo = await this.findTodoRepository.execute(id); // chamando o arquivo e função que está no arquivo
+            const todo = await this.findTodoRepository.findByEmail(id); // chamando o arquivo e função que está no arquivo
             this.loggers.log('toDo found sucesfully');
             return todo;
         }catch(error){
